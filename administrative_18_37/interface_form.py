@@ -230,57 +230,51 @@ class Ui_Form(object):
         self.label_2 = QLabel(Form)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setGeometry(QRect(50, 170, 161, 16))
-        self.widget = QWidget(Form)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(830, 10, 474, 151))
-        self.formLayout = QFormLayout(self.widget)
+        self.layoutWidget = QWidget(Form)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(830, 10, 474, 131))
+        self.formLayout = QFormLayout(self.layoutWidget)
         self.formLayout.setObjectName(u"formLayout")
         self.formLayout.setContentsMargins(0, 0, 0, 0)
-        self.label_17 = QLabel(self.widget)
+        self.label_17 = QLabel(self.layoutWidget)
         self.label_17.setObjectName(u"label_17")
 
         self.formLayout.setWidget(0, QFormLayout.LabelRole, self.label_17)
 
-        self.criminal_n_s_l_rp_field = QTextEdit(self.widget)
+        self.criminal_n_s_l_rp_field = QTextEdit(self.layoutWidget)
         self.criminal_n_s_l_rp_field.setObjectName(u"criminal_n_s_l_rp_field")
         self.criminal_n_s_l_rp_field.setEnabled(False)
 
         self.formLayout.setWidget(0, QFormLayout.FieldRole, self.criminal_n_s_l_rp_field)
 
-        self.label_16 = QLabel(self.widget)
+        self.label_16 = QLabel(self.layoutWidget)
         self.label_16.setObjectName(u"label_16")
 
         self.formLayout.setWidget(1, QFormLayout.LabelRole, self.label_16)
 
-        self.criminal_citizenship_rp_field = QTextEdit(self.widget)
+        self.criminal_citizenship_rp_field = QTextEdit(self.layoutWidget)
         self.criminal_citizenship_rp_field.setObjectName(u"criminal_citizenship_rp_field")
         self.criminal_citizenship_rp_field.setEnabled(False)
 
         self.formLayout.setWidget(1, QFormLayout.FieldRole, self.criminal_citizenship_rp_field)
 
-        self.label_15 = QLabel(self.widget)
+        self.label_15 = QLabel(self.layoutWidget)
         self.label_15.setObjectName(u"label_15")
 
         self.formLayout.setWidget(2, QFormLayout.LabelRole, self.label_15)
 
-        self.label_14 = QLabel(self.widget)
-        self.label_14.setObjectName(u"label_14")
+        self.inspector_n_s_l_rp_field = QTextEdit(self.layoutWidget)
+        self.inspector_n_s_l_rp_field.setObjectName(u"inspector_n_s_l_rp_field")
+        self.inspector_n_s_l_rp_field.setEnabled(False)
 
-        self.formLayout.setWidget(3, QFormLayout.LabelRole, self.label_14)
+        self.formLayout.setWidget(2, QFormLayout.FieldRole, self.inspector_n_s_l_rp_field)
 
-        self.criminal_place_of_living_rp_field = QTextEdit(self.widget)
-        self.criminal_place_of_living_rp_field.setObjectName(u"criminal_place_of_living_rp_field")
-        self.criminal_place_of_living_rp_field.setEnabled(False)
-        self.criminal_place_of_living_rp_field.setTabChangesFocus(True)
-
-        self.formLayout.setWidget(3, QFormLayout.FieldRole, self.criminal_place_of_living_rp_field)
-
-        self.label_6 = QLabel(self.widget)
+        self.label_6 = QLabel(self.layoutWidget)
         self.label_6.setObjectName(u"label_6")
 
-        self.formLayout.setWidget(4, QFormLayout.LabelRole, self.label_6)
+        self.formLayout.setWidget(3, QFormLayout.LabelRole, self.label_6)
 
-        self.mass_overload_field = QDoubleSpinBox(self.widget)
+        self.mass_overload_field = QDoubleSpinBox(self.layoutWidget)
         self.mass_overload_field.setObjectName(u"mass_overload_field")
         self.mass_overload_field.setEnabled(False)
         self.mass_overload_field.setDecimals(2)
@@ -288,13 +282,7 @@ class Ui_Form(object):
         self.mass_overload_field.setSingleStep(0.500000000000000)
         self.mass_overload_field.setValue(5.000000000000000)
 
-        self.formLayout.setWidget(4, QFormLayout.FieldRole, self.mass_overload_field)
-
-        self.inspector_n_s_l_rp_field = QTextEdit(self.widget)
-        self.inspector_n_s_l_rp_field.setObjectName(u"inspector_n_s_l_rp_field")
-        self.inspector_n_s_l_rp_field.setEnabled(False)
-
-        self.formLayout.setWidget(2, QFormLayout.FieldRole, self.inspector_n_s_l_rp_field)
+        self.formLayout.setWidget(3, QFormLayout.FieldRole, self.mass_overload_field)
 
         QWidget.setTabOrder(self.criminal_name_field, self.criminal_surname_field)
         QWidget.setTabOrder(self.criminal_surname_field, self.criminal_last_name_field)
@@ -339,8 +327,7 @@ class Ui_Form(object):
         QWidget.setTabOrder(self.process_btn, self.criminal_n_s_l_rp_field)
         QWidget.setTabOrder(self.criminal_n_s_l_rp_field, self.criminal_citizenship_rp_field)
         QWidget.setTabOrder(self.criminal_citizenship_rp_field, self.inspector_n_s_l_rp_field)
-        QWidget.setTabOrder(self.inspector_n_s_l_rp_field, self.criminal_place_of_living_rp_field)
-        QWidget.setTabOrder(self.criminal_place_of_living_rp_field, self.mass_overload_field)
+        QWidget.setTabOrder(self.inspector_n_s_l_rp_field, self.mass_overload_field)
 
         self.retranslateUi(Form)
 
@@ -376,7 +363,7 @@ class Ui_Form(object):
         self.trailer_model_field.setPlaceholderText(QCoreApplication.translate("Form", u"\u041c\u043e\u0434\u0435\u043b\u044c \u043f\u0440\u0438\u0446\u0435\u043f\u0430", None))
         self.truck_n_field.setPlaceholderText(QCoreApplication.translate("Form", u"\u041d\u043e\u043c\u0435\u0440 \u0442\u044f\u0433\u0430\u0447\u0430", None))
         self.trailer_n_field.setPlaceholderText(QCoreApplication.translate("Form", u"\u041d\u043e\u043c\u0435\u0440 \u043f\u0440\u0438\u0446\u0435\u043f\u0430", None))
-        self.truck_suspension_tp_field.setPlaceholderText(QCoreApplication.translate("Form", u"\u043a\u0430\u043a\u043e\u0439 \u043f\u043e\u0434\u0432\u0435\u0441\u043a\u043e\u0439 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d \u0442\u044f\u0433\u0430\u0447", None))
+        self.truck_suspension_tp_field.setPlaceholderText(QCoreApplication.translate("Form", u"\u043a\u0430\u043a\u043e\u0439 \u043f\u043e\u0434\u0432\u0435\u0441\u043a\u043e\u0439 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d \u0442\u044f\u0433\u0430\u0447 \u0432 \u0422.\u043f.", None))
         self.shaft_n_field.setItemText(0, QCoreApplication.translate("Form", u"\u043f\u0435\u0440\u0432\u0443\u044e", None))
         self.shaft_n_field.setItemText(1, QCoreApplication.translate("Form", u"\u0432\u0442\u043e\u0440\u0443\u044e", None))
         self.shaft_n_field.setItemText(2, QCoreApplication.translate("Form", u"\u0442\u0440\u0435\u0442\u044c\u044e", None))
@@ -404,9 +391,7 @@ class Ui_Form(object):
         self.label_16.setText(QCoreApplication.translate("Form", u"\u0413\u0440\u0430\u0436\u0434\u0430\u043d\u0441\u0442\u0432\u043e \u043d\u0430\u0440\u0443\u0448\u0438\u0442\u0435\u043b\u044f \u0432 \u0420.\u043f.", None))
         self.criminal_citizenship_rp_field.setPlaceholderText(QCoreApplication.translate("Form", u"\u0413\u0440\u0430\u0436\u0434\u0430\u043d\u0441\u0442\u0432\u043e \u043d\u0430\u0440\u0443\u0448\u0438\u0442\u0435\u043b\u044f \u0432 \u0420.\u043f.", None))
         self.label_15.setText(QCoreApplication.translate("Form", u"\u0424\u0418\u041e \u0438\u043d\u0441\u043f\u0435\u043a\u0442\u043e\u0440\u0430 \u0432 \u0420.\u043f.", None))
-        self.label_14.setText(QCoreApplication.translate("Form", u"\u041c\u0435\u0441\u0442\u043e \u043f\u0440\u043e\u0436\u0438\u0432\u0430\u043d\u0438\u044f \u043d\u0430\u0440\u0443\u0448\u0438\u0442\u0435\u043b\u044f \u0432 \u0420.\u043f.", None))
-        self.criminal_place_of_living_rp_field.setPlaceholderText(QCoreApplication.translate("Form", u"\u041c\u0435\u0441\u0442\u043e \u043f\u0440\u043e\u0436\u0438\u0432\u0430\u043d\u0438\u044f \u043d\u0430\u0440\u0443\u0448\u0438\u0442\u0435\u043b\u044f \u0432 \u0420.\u043f.", None))
-        self.label_6.setText(QCoreApplication.translate("Form", u"\u041f\u0440\u043e\u0446\u0435\u043d\u0442 \u043f\u0440\u0435\u0432\u044b\u0448\u0435\u043d\u0438\u044f \u043f\u043e \u043c\u0430\u0441\u0441\u0435", None))
         self.inspector_n_s_l_rp_field.setPlaceholderText(QCoreApplication.translate("Form", u"\u0424\u0418\u041e \u0438\u043d\u0441\u043f\u0435\u043a\u0442\u043e\u0440\u0430 \u0432 \u0420.\u043f.", None))
+        self.label_6.setText(QCoreApplication.translate("Form", u"\u041f\u0440\u043e\u0446\u0435\u043d\u0442 \u043f\u0440\u0435\u0432\u044b\u0448\u0435\u043d\u0438\u044f \u043f\u043e \u043c\u0430\u0441\u0441\u0435", None))
     # retranslateUi
 

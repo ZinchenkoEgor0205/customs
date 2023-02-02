@@ -9,16 +9,15 @@ def doc_process(criminal, inspector, mixed_data):
     FIELDS = {
         'FieldRPCriminalFio': criminal.n_s_l_rp,
         'FieldInitCriminalFio': criminal.initials,
-        'FieldCriminalFio': f'{criminal.name} {criminal.surname} {criminal.last_name}',
+        'FieldCriminalFio': f'{criminal.surname} {criminal.name} {criminal.last_name}',
         'FieldRPInspectorFio': inspector.n_s_l_rp,
         'FieldInitInspectorFio': inspector.initials,
-        'FieldInspectorFio': f'{inspector.name} {inspector.surname} {inspector.last_name}',
+        'FieldInspectorFio': f'{inspector.surname} {inspector.name} {inspector.last_name}',
         'FieldPosition': inspector.position,
         'FieldDepartmentN': inspector.department_n,
         'FieldDateOfBirth': criminal.date_of_birth,
         'FieldPlaceOfBirth': criminal.place_of_birth,
         'FieldPlaceOfLiving': criminal.place_of_living,
-        'FieldRPPlaceOfLiving': criminal.place_of_living_rp,
         'FieldMobile': criminal.phone,
         'FieldEducation': criminal.education,
         'FieldPassportN': criminal.passport_n,
@@ -53,7 +52,7 @@ def doc_process(criminal, inspector, mixed_data):
         'FieldCheckExpirationDate': mixed_data.weight_check_expiration_date,
 
     }
-    doc = docx.Document('administrative_18_37/raw_18_37.docx')
+    doc = docx.Document('templates/raw_18_37.docx')
     for paragraph in doc.paragraphs:
         for run in paragraph.runs:
             if 'Field' in run.text:
@@ -67,4 +66,4 @@ def doc_process(criminal, inspector, mixed_data):
 
 
 
-    doc.save('probe_done.docx')
+    doc.save('reuslt.docx')
