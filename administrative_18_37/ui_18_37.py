@@ -47,7 +47,6 @@ class Form(QDialog, Ui_Form):
             self.inspector_n_s_l_rp_field.setEnabled(True)
             self.process_btn.setEnabled(True)
         except Exception as err:
-            print(err)
             dlg = CustomDialog(self)
             dlg.exec_()
 
@@ -75,7 +74,6 @@ class Form(QDialog, Ui_Form):
         self.mixed_data.control_date = self.date_of_control_field.text().split()[0]
         self.mixed_data.control_hour = self.date_of_control_field.text().split()[1].split(':')[0]
         self.mixed_data.control_minute = self.date_of_control_field.text().split()[1].split(':')[1]
-        print(self.mixed_data.control_hour)
         self.mixed_data.truck_model = self.truck_model_field.toPlainText()
         self.mixed_data.truck_n = self.truck_n_field.toPlainText()
         self.mixed_data.trailer_model = self.trailer_model_field.toPlainText()

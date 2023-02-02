@@ -57,7 +57,6 @@ def doc_process(criminal, inspector, mixed_data):
     for paragraph in doc.paragraphs:
         for run in paragraph.runs:
             if 'Field' in run.text:
-                print(run.text)
                 for key, value in FIELDS.items():
                     if key == run.text.strip() or key == run.text.strip()[:-1]:
                         run.text = run.text.replace(key, value)
