@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1318</width>
+    <height>869</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTextEdit" name="criminal_last_name_field">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>120</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Отчество нарушителя</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="criminal_surname_field">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>70</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Фамилия нарушителя</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="criminal_name_field">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>20</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Имя нарушителя</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="process_btn">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1170</x>
+     <y>800</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Подтвердить</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="inspector_name_field">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>540</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Имя инспектора</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="inspector_last_name_field">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>640</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Отчество инспектора</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="inspector_surname_field">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>590</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Фамилия инспектора</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="inspector_position_field">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>690</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Должность инспектора</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="inspector_department_field">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>740</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Номер отдела</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="criminal_place_of_birth_field">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>220</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Место рождения нарушителя</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="criminal_place_of_living_field">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>270</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Место проживания нарушителя</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="criminal_phone_field">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>320</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>номер телефона нарушителя</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="criminal_education_field">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>380</y>
+     <width>201</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>Образование</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>Высшее</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Среднее</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>360</y>
+     <width>111</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Образование</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="criminal_passport_n_field">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>20</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Номер паспорта нарушителя</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="criminal_passport_provider_field">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>110</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>кем выдан паспорт нарушителя</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="criminal_passport_id_field">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>160</y>
+     <width>291</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>идентификационный номер паспорта нарушителя</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="criminal_citizenship_field">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>210</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>гражданство нарушителя</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="criminal_firm_name_field">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>260</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>фирма работы нарушителя</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="criminal_firm_address_field">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>310</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>адрес фирмы работы нарушителя</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="truck_model_field">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>400</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Модель тягача</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="trailer_model_field">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>440</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Модель прицепа</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="truck_n_field">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>400</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Номер тягача</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="trailer_n_field">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>440</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Номер прицепа</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="truck_suspension_tp_field">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>490</y>
+     <width>231</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>какой подвеской оборудован тягач в Т.п.</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="shaft_n_field">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>630</y>
+     <width>201</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>На какую группу осей превышение</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>первую</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>вторую</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>третью</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>610</y>
+     <width>201</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>На какую группу осей превышение</string>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="max_mass_field">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>700</y>
+     <width>62</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="decimals">
+    <number>1</number>
+   </property>
+   <property name="minimum">
+    <double>6.000000000000000</double>
+   </property>
+   <property name="singleStep">
+    <double>0.500000000000000</double>
+   </property>
+   <property name="value">
+    <double>10.000000000000000</double>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>700</y>
+     <width>181</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Максимальная масса на ось т</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>730</y>
+     <width>131</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Максимальная несущая способность дорожной одежды, т</string>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="max_road_mass_field">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>750</y>
+     <width>62</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="decimals">
+    <number>1</number>
+   </property>
+   <property name="minimum">
+    <double>6.000000000000000</double>
+   </property>
+   <property name="singleStep">
+    <double>0.500000000000000</double>
+   </property>
+   <property name="value">
+    <double>10.500000000000000</double>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="weight_model_field">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>440</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Модель весов</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="weight_check_n_field">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>480</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Номер свидетельства о поверке</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="protocol_n_field">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>600</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Номер протокола взвешивания</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="good_name_field">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>640</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Название товара</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="route_name_field">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>740</y>
+     <width>301</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>название маршрута</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>670</y>
+     <width>181</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Фактическая масса на ось</string>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="mass_field">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>670</y>
+     <width>62</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="decimals">
+    <number>1</number>
+   </property>
+   <property name="minimum">
+    <double>6.000000000000000</double>
+   </property>
+   <property name="singleStep">
+    <double>0.500000000000000</double>
+   </property>
+   <property name="value">
+    <double>10.000000000000000</double>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="fill_btn">
+   <property name="geometry">
+    <rect>
+     <x>1170</x>
+     <y>740</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Заполнить</string>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="criminal_passport_date_of_providing_field">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>80</y>
+     <width>110</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>60</y>
+     <width>201</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Дата выдачи паспорта нарушителя</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>780</y>
+     <width>171</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Дата время начала контроля</string>
+   </property>
+  </widget>
+  <widget class="QDateTimeEdit" name="date_of_control_field">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>800</y>
+     <width>194</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="weight_check_date_field">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>530</y>
+     <width>110</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>510</y>
+     <width>201</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Дата поверки весов</string>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="weight_check_date_expiration_field">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>570</y>
+     <width>110</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>550</y>
+     <width>201</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Дата истечения поверки весов</string>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="departure_date_field">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>710</y>
+     <width>110</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_12">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>690</y>
+     <width>131</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Дата начала поездки</string>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="arrival_date_field">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>710</y>
+     <width>110</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>690</y>
+     <width>141</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Дата окончания поездки</string>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="criminal_date_of_birth_field">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>190</y>
+     <width>110</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>170</y>
+     <width>161</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Дата рождения нарушителя</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>10</y>
+     <width>474</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_17">
+      <property name="text">
+       <string>ФИО нарушителя в Р.п.</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QTextEdit" name="criminal_n_s_l_rp_field">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string>ФИО нарушителя в Р.п.</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_16">
+      <property name="text">
+       <string>Гражданство нарушителя в Р.п.</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QTextEdit" name="criminal_citizenship_rp_field">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string>Гражданство нарушителя в Р.п.</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_15">
+      <property name="text">
+       <string>ФИО инспектора в Р.п.</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_14">
+      <property name="text">
+       <string>Место проживания нарушителя в Р.п.</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QTextEdit" name="criminal_place_of_living_rp_field">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+      <property name="placeholderText">
+       <string>Место проживания нарушителя в Р.п.</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Процент превышения по массе</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QDoubleSpinBox" name="mass_overload_field">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="decimals">
+       <number>2</number>
+      </property>
+      <property name="minimum">
+       <double>5.000000000000000</double>
+      </property>
+      <property name="singleStep">
+       <double>0.500000000000000</double>
+      </property>
+      <property name="value">
+       <double>5.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QTextEdit" name="inspector_n_s_l_rp_field">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string>ФИО инспектора в Р.п.</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>criminal_name_field</tabstop>
+  <tabstop>criminal_surname_field</tabstop>
+  <tabstop>criminal_last_name_field</tabstop>
+  <tabstop>criminal_date_of_birth_field</tabstop>
+  <tabstop>criminal_place_of_birth_field</tabstop>
+  <tabstop>criminal_place_of_living_field</tabstop>
+  <tabstop>criminal_phone_field</tabstop>
+  <tabstop>criminal_education_field</tabstop>
+  <tabstop>criminal_passport_n_field</tabstop>
+  <tabstop>criminal_passport_date_of_providing_field</tabstop>
+  <tabstop>criminal_passport_provider_field</tabstop>
+  <tabstop>criminal_passport_id_field</tabstop>
+  <tabstop>criminal_citizenship_field</tabstop>
+  <tabstop>criminal_firm_name_field</tabstop>
+  <tabstop>criminal_firm_address_field</tabstop>
+  <tabstop>inspector_name_field</tabstop>
+  <tabstop>inspector_surname_field</tabstop>
+  <tabstop>inspector_last_name_field</tabstop>
+  <tabstop>inspector_position_field</tabstop>
+  <tabstop>inspector_department_field</tabstop>
+  <tabstop>date_of_control_field</tabstop>
+  <tabstop>truck_model_field</tabstop>
+  <tabstop>truck_n_field</tabstop>
+  <tabstop>trailer_model_field</tabstop>
+  <tabstop>trailer_n_field</tabstop>
+  <tabstop>truck_suspension_tp_field</tabstop>
+  <tabstop>shaft_n_field</tabstop>
+  <tabstop>mass_field</tabstop>
+  <tabstop>max_mass_field</tabstop>
+  <tabstop>max_road_mass_field</tabstop>
+  <tabstop>weight_model_field</tabstop>
+  <tabstop>weight_check_n_field</tabstop>
+  <tabstop>weight_check_date_field</tabstop>
+  <tabstop>weight_check_date_expiration_field</tabstop>
+  <tabstop>protocol_n_field</tabstop>
+  <tabstop>good_name_field</tabstop>
+  <tabstop>departure_date_field</tabstop>
+  <tabstop>arrival_date_field</tabstop>
+  <tabstop>route_name_field</tabstop>
+  <tabstop>fill_btn</tabstop>
+  <tabstop>process_btn</tabstop>
+  <tabstop>criminal_n_s_l_rp_field</tabstop>
+  <tabstop>criminal_citizenship_rp_field</tabstop>
+  <tabstop>inspector_n_s_l_rp_field</tabstop>
+  <tabstop>criminal_place_of_living_rp_field</tabstop>
+  <tabstop>mass_overload_field</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
