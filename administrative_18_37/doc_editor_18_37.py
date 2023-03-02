@@ -52,7 +52,7 @@ def doc_process(criminal, inspector, mixed_data):
         'FieldCheckExpirationDate': mixed_data.weight_check_expiration_date,
 
     }
-    doc = docx.Document('templates/raw_18_37.docx')
+    doc = docx.Document('sources/templates/raw_18_37.docx')
     for paragraph in doc.paragraphs:
         for run in paragraph.runs:
             if 'Field' in run.text:
@@ -66,4 +66,4 @@ def doc_process(criminal, inspector, mixed_data):
 
 
 
-    doc.save('result.docx')
+    doc.save(f'result/{criminal.surname}_{criminal.name}.docx')

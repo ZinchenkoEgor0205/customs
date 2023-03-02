@@ -968,6 +968,19 @@
     <bool>false</bool>
    </property>
   </widget>
+  <widget class="QPushButton" name="testmode_btn">
+   <property name="geometry">
+    <rect>
+     <x>1010</x>
+     <y>820</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>test mode</string>
+   </property>
+  </widget>
  </widget>
  <tabstops>
   <tabstop>criminal_name_field</tabstop>

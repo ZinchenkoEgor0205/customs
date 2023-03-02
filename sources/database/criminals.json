@@ -1,21 +1,8 @@
 [
   {
     "HB7777777": {
-      "surname": "Success",
-      "name": "Success",
-      "last_name": "Success",
-      "place_of_birth": "Success",
-      "place_of_living": "Success",
-      "phone": "Success",
-      "passport_provider": "Success",
-      "passport_id": "Success",
-      "citizenship": "Success"
-    }
-  },
-  {
-    "HB875212": {
-      "surname": "Иван",
-      "name": "Иванов",
+      "surname": "Иванов",
+      "name": "Иван",
       "last_name": "Иванович",
       "place_of_birth": "Республика Беларусь, г. Минск",
       "place_of_living": "Республика Беларусь, г. Минск, ул. Ленина, д.1, кв. 50",

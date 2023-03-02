@@ -298,6 +298,9 @@ class Ui_Form_18_37(object):
         self.criminal_add_btn.setAutoRepeat(False)
         self.criminal_add_btn.setAutoDefault(True)
         self.criminal_add_btn.setFlat(False)
+        self.testmode_btn = QPushButton(Form_18_37)
+        self.testmode_btn.setObjectName(u"testmode_btn")
+        self.testmode_btn.setGeometry(QRect(1010, 820, 75, 24))
         QWidget.setTabOrder(self.criminal_name_field, self.criminal_surname_field)
         QWidget.setTabOrder(self.criminal_surname_field, self.criminal_last_name_field)
         QWidget.setTabOrder(self.criminal_last_name_field, self.criminal_date_of_birth_field)
@@ -413,5 +416,6 @@ class Ui_Form_18_37(object):
         self.label_6.setText(QCoreApplication.translate("Form_18_37", u"\u041f\u0440\u043e\u0446\u0435\u043d\u0442 \u043f\u0440\u0435\u0432\u044b\u0448\u0435\u043d\u0438\u044f \u043f\u043e \u043c\u0430\u0441\u0441\u0435", None))
         self.criminal_search_btn.setText(QCoreApplication.translate("Form_18_37", u"\u0418\u0441\u043a\u0430\u0442\u044c", None))
         self.criminal_add_btn.setText(QCoreApplication.translate("Form_18_37", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c", None))
+        self.testmode_btn.setText(QCoreApplication.translate("Form_18_37", u"test mode", None))
     # retranslateUi
 

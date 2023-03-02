@@ -16,7 +16,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QPushButton, QSizePolicy,
-                               QWidget, QDialog, QDialogButtonBox, QVBoxLayout, QLabel)
+    QWidget)
 
 class Ui_Welcome_interface(object):
     def setupUi(self, Welcome_interface):
@@ -45,13 +45,3 @@ class Ui_Welcome_interface(object):
 
     # retranslateUi
 
-class CustomDialog(QDialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-
-        self.setWindowTitle("Внимание")
-        self.layout = QVBoxLayout()
-        self.message = QLabel("Something happened, is that OK?")
-        self.layout.addWidget(self.message)
-        self.setLayout(self.layout)
-        QBtn = QDialogButtonBox.Ok

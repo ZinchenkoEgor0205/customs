@@ -1,5 +1,5 @@
-from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel
-from interface_welcome_screen import CustomDialog
+from PySide6.QtWidgets import QDialog
+from extra_ui import CustomDialog
 from administrative_18_37.interface_form_18_37 import Ui_Form_18_37
 from common_data import *
 from administrative_18_37.doc_editor_18_37 import *
@@ -14,20 +14,20 @@ class Form_18_37(QDialog, Ui_Form_18_37):
         self.inspector = Inspector
         self.mixed_data = MixedData
         self.setupUi(self)
-
-        self.test(True) #Переключи на False, чтоб отключить тестовый режим
-
         self.process_btn.clicked.connect(self.process_btn_clicked)
         self.fill_btn.clicked.connect(self.fill_btn_clicked)
         self.criminal_search_btn.clicked.connect(self.criminal_search_btn_clicked)
         self.criminal_add_btn.clicked.connect(self.criminal_add_btn_clicked)
+        self.testmode_btn.clicked.connect(self.test)
+
+
     def criminal_search_btn_clicked(self):
         if self.criminal_passport_n_field.toPlainText():
             passport_n = self.criminal_passport_n_field.toPlainText()
-            with open("sources/database/criminals.json", "r") as criminals_database_file:
+            with open("sources/database/criminals.json", "r", encoding='utf-8') as criminals_database_file:
                 criminals_database = json.loads(criminals_database_file.read())
                 try:
-                    criminal_passport_info = criminals_database[passport_n]
+                    criminal_passport_info = criminals_database[0][passport_n]
                     self.criminal.surname = criminal_passport_info['surname']
                     self.criminal_surname_field.setText(criminal_passport_info['surname'])
                     self.criminal.name = criminal_passport_info['name']
@@ -51,6 +51,39 @@ class Form_18_37(QDialog, Ui_Form_18_37):
                     dlg.message.setText('Не найдено соответствий')
                     print('Не найдено соответствий')
                     dlg.exec_()
+
+    def criminal_add_btn_clicked(self):
+        try:
+            passport_n = self.criminal_passport_n_field.toPlainText()
+            with open("sources/database/criminals.json", "r") as criminals_database_file:
+                criminals_database = json.loads(criminals_database_file.read())
+                try:
+                    criminal_passport_info = criminals_database[passport_n]
+
+                except Exception:
+                    with open("sources/database/criminals.json", "r+", encoding='utf-8') as criminals_database_file:
+                        criminals_database = json.load(criminals_database_file)
+                        entry = {
+                            "surname": f"{self.criminal_surname_field.toPlainText()}",
+                            "name": f"{self.criminal_name_field.toPlainText()}",
+                            "last_name": f"{self.criminal_last_name_field.toPlainText()}",
+                            "place_of_birth": f"{self.criminal_place_of_birth_field.toPlainText()}",
+                            "place_of_living": f"{self.criminal_place_of_living_field.toPlainText()}",
+                            "phone": f"{self.criminal_phone_field.toPlainText()}",
+                            "passport_provider": f"{self.criminal_passport_provider_field.toPlainText()}",
+                            "passport_id": f"{self.criminal_passport_id_field.toPlainText()}",
+                            "citizenship": f"{self.criminal_citizenship_field.toPlainText()}"
+                        }
+                        criminals_database[0][passport_n] = entry
+                        with open("sources/database/criminals.json", 'w', encoding='utf-8') as file:
+                            json.dump(criminals_database, file, ensure_ascii=False,
+                                      indent=2,
+                                      separators=(',', ': '))
+        except Exception:
+            dlg = CustomDialog(self)
+            dlg.message.setText('Нарушитель уже добавлен')
+            dlg.exec_()
+
 
     def fill_btn_clicked(self):
         try:
@@ -81,27 +114,6 @@ class Form_18_37(QDialog, Ui_Form_18_37):
             dlg = CustomDialog(self)
             dlg.exec_()
 
-    def criminal_add_btn_clicked(self):
-        with open("sources/database/criminals.json", "r+", encoding='utf-8') as criminals_database_file:
-            criminals_database = json.load(criminals_database_file)
-            entry = {}
-            entry[self.criminal_passport_n_field.toPlainText()] = {
-                "surname": f"{self.criminal_name_field.toPlainText()}",
-                "name": f"{self.criminal_surname_field.toPlainText()}",
-                "last_name": f"{self.criminal_last_name_field.toPlainText()}",
-                "place_of_birth": f"{self.criminal_place_of_birth_field.toPlainText()}",
-                "place_of_living": f"{self.criminal_place_of_living_field.toPlainText()}",
-                "phone": f"{self.criminal_phone_field.toPlainText()}",
-                "passport_provider": f"{self.criminal_passport_provider_field.toPlainText()}",
-                "passport_id": f"{self.criminal_passport_id_field.toPlainText()}",
-                "citizenship": f"{self.criminal_citizenship_field.toPlainText()}"
-            }
-            print(entry)
-            criminals_database.append(entry)
-            with open("sources/database/criminals.json", 'w', encoding='utf-8') as file:
-                json.dump(criminals_database, file, ensure_ascii=False,
-                          indent=2,
-                          separators=(',', ': '))
 
 
     def process_btn_clicked(self):
@@ -152,32 +164,31 @@ class Form_18_37(QDialog, Ui_Form_18_37):
 
 
 
-    def test(self, flag):
-        if flag:
-            self.criminal_name_field.setText('Иван')
-            self.criminal_surname_field.setText('Иванов')
-            self.criminal_last_name_field.setText('Иванович')
-            self.criminal_place_of_birth_field.setText('Республика Беларусь, г. Минск')
-            self.criminal_place_of_living_field.setText('Республика Беларусь, г. Минск, ул. Ленина, д.1, кв. 50')
-            self.criminal_phone_field.setText('88005553535')
-            self.criminal_passport_n_field.setText("HB875212")
-            self.criminal_passport_id_field.setText('1546136623287')
-            self.criminal_passport_provider_field.setText('Фрунзенский РОВД г. Минска')
-            self.criminal_citizenship_field.setText('Республика Беларусь')
-            self.criminal_firm_name_field.setText('Grand cargo')
-            self.criminal_firm_address_field.setText('Litva, Vilnus, Electriskes, 54')
-            self.inspector_name_field.setText('Егор')
-            self.inspector_surname_field.setText('Зинченко')
-            self.inspector_last_name_field.setText('Дмитриевич')
-            self.inspector_position_field.setText('Инспектор')
-            self.inspector_department_field.setText('2')
-            self.truck_n_field.setText('tru152')
-            self.truck_model_field.setText('scania')
-            self.trailer_n_field.setText('yt315')
-            self.trailer_model_field.setText('schmitz')
-            self.truck_suspension_tp_field.setText('пневматической подвеской')
-            self.weight_model_field.setText('ak64856')
-            self.weight_check_n_field.setText('874653052')
-            self.protocol_n_field.setText('23477565')
-            self.good_name_field.setText('керамические изделия')
-            self.route_name_field.setText('Лида-Бенякони-1')
+    def test(self):
+        self.criminal_name_field.setText('Иван')
+        self.criminal_surname_field.setText('Иванов')
+        self.criminal_last_name_field.setText('Иванович')
+        self.criminal_place_of_birth_field.setText('Республика Беларусь, г. Минск')
+        self.criminal_place_of_living_field.setText('Республика Беларусь, г. Минск, ул. Ленина, д.1, кв. 50')
+        self.criminal_phone_field.setText('88005553535')
+        self.criminal_passport_n_field.setText("HB7777777")
+        self.criminal_passport_id_field.setText('1546136623287')
+        self.criminal_passport_provider_field.setText('Фрунзенский РОВД г. Минска')
+        self.criminal_citizenship_field.setText('Республика Беларусь')
+        self.criminal_firm_name_field.setText('Grand cargo')
+        self.criminal_firm_address_field.setText('Litva, Vilnus, Electriskes, 54')
+        self.inspector_name_field.setText('Егор')
+        self.inspector_surname_field.setText('Зинченко')
+        self.inspector_last_name_field.setText('Дмитриевич')
+        self.inspector_position_field.setText('Инспектор')
+        self.inspector_department_field.setText('2')
+        self.truck_n_field.setText('tru152')
+        self.truck_model_field.setText('scania')
+        self.trailer_n_field.setText('yt315')
+        self.trailer_model_field.setText('schmitz')
+        self.truck_suspension_tp_field.setText('пневматической подвеской')
+        self.weight_model_field.setText('ak64856')
+        self.weight_check_n_field.setText('874653052')
+        self.protocol_n_field.setText('23477565')
+        self.good_name_field.setText('керамические изделия')
+        self.route_name_field.setText('Лида-Бенякони-1')
