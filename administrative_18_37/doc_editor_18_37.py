@@ -66,4 +66,4 @@ def doc_process(criminal, inspector, mixed_data):
 
 
 
-    doc.save('reuslt.docx')
+    doc.save('result.docx')

@@ -1,10 +1,11 @@
-from PySide6.QtWidgets import QApplication, QDialog
-from interface import Ui_Interface, CustomDialog
-from administrative_18_37.interface_form import Ui_Form
-from data import *
+from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel
+from interface_welcome_screen import CustomDialog
+from administrative_18_37.interface_form_18_37 import Ui_Form_18_37
+from common_data import *
 from administrative_18_37.doc_editor_18_37 import *
+import json
 
-class Form(QDialog, Ui_Form):
+class Form_18_37(QDialog, Ui_Form_18_37):
 
     def __init__(self):
         """Initializer."""
@@ -14,10 +15,41 @@ class Form(QDialog, Ui_Form):
         self.mixed_data = MixedData
         self.setupUi(self)
 
-        self.test(True) #Переключи на False, чтоб отключить тест
+        self.test(True) #Переключи на False, чтоб отключить тестовый режим
 
         self.process_btn.clicked.connect(self.process_btn_clicked)
         self.fill_btn.clicked.connect(self.fill_btn_clicked)
+        self.criminal_search.clicked.connect(self.criminal_search_btn_clicked)
+    def criminal_search_btn_clicked(self):
+        if self.criminal_passport_n_field.toPlainText():
+            passport_n = self.criminal_passport_n_field.toPlainText()
+            with open("sources/database/criminals.json", "r") as criminals_database_file:
+                criminals_database = json.loads(criminals_database_file.read())
+                try:
+                    criminal_passport_info = criminals_database[passport_n]
+                    self.criminal.surname = criminal_passport_info['surname']
+                    self.criminal_surname_field.setText(criminal_passport_info['surname'])
+                    self.criminal.name = criminal_passport_info['name']
+                    self.criminal_name_field.setText(criminal_passport_info['name'])
+                    self.criminal.last_name = criminal_passport_info['last_name']
+                    self.criminal_last_name_field.setText(criminal_passport_info['last_name'])
+                    self.criminal.place_of_birth = criminal_passport_info['place_of_birth']
+                    self.criminal_place_of_birth_field.setText(criminal_passport_info['place_of_birth'])
+                    self.criminal.place_of_living = criminal_passport_info['place_of_living']
+                    self.criminal_place_of_living_field.setText(criminal_passport_info['place_of_living'])
+                    self.criminal.phone = criminal_passport_info['phone']
+                    self.criminal_phone_field.setText(criminal_passport_info['phone'])
+                    self.criminal.passport_provider = criminal_passport_info['passport_provider']
+                    self.criminal_passport_provider_field.setText(criminal_passport_info['passport_provider'])
+                    self.criminal.passport_id = criminal_passport_info['passport_id']
+                    self.criminal_passport_id_field.setText(criminal_passport_info['passport_id'])
+                    self.criminal.citizenship = criminal_passport_info['citizenship']
+                    self.criminal_citizenship_field.setText(criminal_passport_info['citizenship'])
+                except Exception as err:
+                    dlg = CustomDialog(self)
+                    dlg.message.setText('Не найдено соответствий')
+                    print('Не найдено соответствий')
+                    dlg.exec_()
 
     def fill_btn_clicked(self):
         try:
@@ -39,7 +71,6 @@ class Form(QDialog, Ui_Form):
             self.criminal_citizenship_rp_field.setText(self.criminal.citizenship_rp)
             self.criminal_n_s_l_rp_field.setText(self.criminal.n_s_l_rp)
             self.inspector_n_s_l_rp_field.setText(self.inspector.n_s_l_rp)
-            # self.criminal_place_of_living_rp_field.setText(self.criminal.place_of_living_rp)
             self.mass_overload_field.setValue((self.mass_field.value() / self.max_mass_field.value() - 1) * 100)
             self.criminal_citizenship_rp_field.setEnabled(True)
             self.criminal_n_s_l_rp_field.setEnabled(True)
@@ -118,7 +149,7 @@ class Form(QDialog, Ui_Form):
             self.truck_model_field.setText('scania')
             self.trailer_n_field.setText('yt315')
             self.trailer_model_field.setText('schmitz')
-            self.truck_suspension_tp_field.setText('пневматической повеской')
+            self.truck_suspension_tp_field.setText('пневматической подвеской')
             self.weight_model_field.setText('ak64856')
             self.weight_check_n_field.setText('874653052')
             self.protocol_n_field.setText('23477565')
