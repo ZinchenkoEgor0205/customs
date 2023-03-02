@@ -1,14 +1,28 @@
-{
-  "HB7777777": {
-    "surname": "Success",
-    "name": "Success",
-    "last_name": "Success",
-    "place_of_birth": "Success",
-    "place_of_living": "Success",
-    "phone": "Success",
-    "passport_provider": "Success",
-    "passport_id": "Success",
-    "citizenship": "Success"
+[
+  {
+    "HB7777777": {
+      "surname": "Success",
+      "name": "Success",
+      "last_name": "Success",
+      "place_of_birth": "Success",
+      "place_of_living": "Success",
+      "phone": "Success",
+      "passport_provider": "Success",
+      "passport_id": "Success",
+      "citizenship": "Success"
+    }
+  },
+  {
+    "HB875212": {
+      "surname": "Иван",
+      "name": "Иванов",
+      "last_name": "Иванович",
+      "place_of_birth": "Республика Беларусь, г. Минск",
+      "place_of_living": "Республика Беларусь, г. Минск, ул. Ленина, д.1, кв. 50",
+      "phone": "88005553535",
+      "passport_provider": "Фрунзенский РОВД г. Минска",
+      "passport_id": "1546136623287",
+      "citizenship": "Республика Беларусь"
+    }
   }
-
-}
+]
