@@ -5,6 +5,7 @@ from common_data import *
 from administrative_18_37.doc_editor_18_37 import *
 import json
 
+
 class Form_18_37(QDialog, Ui_Form_18_37):
 
     def __init__(self):
@@ -19,7 +20,6 @@ class Form_18_37(QDialog, Ui_Form_18_37):
         self.criminal_search_btn.clicked.connect(self.criminal_search_btn_clicked)
         self.criminal_add_btn.clicked.connect(self.criminal_add_btn_clicked)
         self.testmode_btn.clicked.connect(self.test)
-
 
     def criminal_search_btn_clicked(self):
         if self.criminal_passport_n_field.toPlainText():
@@ -55,35 +55,32 @@ class Form_18_37(QDialog, Ui_Form_18_37):
     def criminal_add_btn_clicked(self):
         try:
             passport_n = self.criminal_passport_n_field.toPlainText()
-            with open("sources/database/criminals.json", "r") as criminals_database_file:
+            with open("sources/database/criminals.json", "r", encoding='utf-8') as criminals_database_file:
                 criminals_database = json.loads(criminals_database_file.read())
-                try:
-                    criminal_passport_info = criminals_database[passport_n]
 
-                except Exception:
-                    with open("sources/database/criminals.json", "r+", encoding='utf-8') as criminals_database_file:
-                        criminals_database = json.load(criminals_database_file)
-                        entry = {
-                            "surname": f"{self.criminal_surname_field.toPlainText()}",
-                            "name": f"{self.criminal_name_field.toPlainText()}",
-                            "last_name": f"{self.criminal_last_name_field.toPlainText()}",
-                            "place_of_birth": f"{self.criminal_place_of_birth_field.toPlainText()}",
-                            "place_of_living": f"{self.criminal_place_of_living_field.toPlainText()}",
-                            "phone": f"{self.criminal_phone_field.toPlainText()}",
-                            "passport_provider": f"{self.criminal_passport_provider_field.toPlainText()}",
-                            "passport_id": f"{self.criminal_passport_id_field.toPlainText()}",
-                            "citizenship": f"{self.criminal_citizenship_field.toPlainText()}"
-                        }
-                        criminals_database[0][passport_n] = entry
-                        with open("sources/database/criminals.json", 'w', encoding='utf-8') as file:
-                            json.dump(criminals_database, file, ensure_ascii=False,
-                                      indent=2,
-                                      separators=(',', ': '))
-        except Exception:
+                if passport_n in criminals_database[0]:
+                    raise Exception
+
+            with open("sources/database/criminals.json", "r+", encoding='utf-8') as criminals_database_file:
+                criminals_database = json.load(criminals_database_file)
+                entry = {
+                    "surname": f"{self.criminal_surname_field.toPlainText()}",
+                    "name": f"{self.criminal_name_field.toPlainText()}",
+                    "last_name": f"{self.criminal_last_name_field.toPlainText()}",
+                    "place_of_birth": f"{self.criminal_place_of_birth_field.toPlainText()}",
+                    "place_of_living": f"{self.criminal_place_of_living_field.toPlainText()}",
+                    "phone": f"{self.criminal_phone_field.toPlainText()}",
+                    "passport_provider": f"{self.criminal_passport_provider_field.toPlainText()}",
+                    "passport_id": f"{self.criminal_passport_id_field.toPlainText()}",
+                    "citizenship": f"{self.criminal_citizenship_field.toPlainText()}"
+                }
+                criminals_database[0][passport_n] = entry
+            with open("sources/database/criminals.json", 'w', encoding='utf-8') as file:
+                json.dump(criminals_database, file, ensure_ascii=False, indent=2, separators=(',', ': '))
+        except Exception as err:
             dlg = CustomDialog(self)
             dlg.message.setText('Нарушитель уже добавлен')
             dlg.exec_()
-
 
     def fill_btn_clicked(self):
         try:
@@ -114,8 +111,6 @@ class Form_18_37(QDialog, Ui_Form_18_37):
             dlg = CustomDialog(self)
             dlg.exec_()
 
-
-
     def process_btn_clicked(self):
         self.criminal.place_of_living_rp = self.criminal_place_of_living_field.toPlainText()
         self.criminal.citizenship_rp = self.criminal_citizenship_rp_field.toPlainText()
@@ -132,8 +127,6 @@ class Form_18_37(QDialog, Ui_Form_18_37):
         self.criminal.passport_id = self.criminal_passport_id_field.toPlainText()
         self.criminal.firm = self.criminal_firm_name_field.toPlainText()
         self.criminal.firm_address = self.criminal_firm_address_field.toPlainText()
-
-
 
         self.inspector.position = self.inspector_position_field.toPlainText()
         self.inspector.department_n = self.inspector_department_field.toPlainText()
@@ -161,8 +154,6 @@ class Form_18_37(QDialog, Ui_Form_18_37):
         self.mixed_data.route_name = self.route_name_field.toPlainText()
 
         doc_process(criminal=self.criminal, inspector=self.inspector, mixed_data=self.mixed_data)
-
-
 
     def test(self):
         self.criminal_name_field.setText('Иван')
